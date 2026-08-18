@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HajeNet | Web Application & H5 Game Hub</title>
+    <!-- Google AdSense Verification Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8293430621295697" crossorigin="anonymous"></script>
+    
+    <!-- Google Font for Orbitron styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --container-bg: #1f2833;
+            --primary-color: #66fcf1;
+            --secondary-color: #45f3ff;
+            --text-color: #c5c6c7;
+            --title-color: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: rgba(11, 12, 16, 0.95);
+            border-bottom: 2px solid var(--primary-color);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(102, 252, 241, 0.15);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .main-container {
+            flex: 1;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .intro-box {
+            background-color: var(--container-bg);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--title-color);
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        h1 span {
+            color: var(--primary-color);
+        }
+
+        .intro-p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #a8a9ab;
+            max-width: 750px;
+            margin: 0 auto 30px auto;
+        }
+
+        .project-section {
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: #151a22;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                flex-direction: row;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(102, 252, 241, 0.2);
+        }
+
+        .card-image-box {
+            flex: 1.2;
+            background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+        }
+
+        .card-image-box::before {
+            content: '🕷️';
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.15;
+        }
+
+        .card-content {
+            flex: 2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--title-color);
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #9fa1a4;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.3);
+            max-width: 150px;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(69, 243, 255, 0.5);
+        }
+
+        .tech-tags {
+            margin-top: 15px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(102, 252, 241, 0.08);
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        footer {
+            background-color: #0b0c10;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">HajeNet</div>
+    </header>
+
+    <div class="main-container">
+        <!-- Introduction Header Section -->
+        <div class="intro-box">
+            <h1>Welcome to <span>HajeNet Portal</span></h1>
+            <p class="intro-p">
+                안녕하세요! HajeNet(하제넷) 웹 어플리케이션 및 H5 HTML5 캐주얼 게임 개발 포털입니다. 
+                이곳은 고전 콘솔 감성과 현대적인 웹 프론트엔드 빌드 기술을 융합하여, 
+                브라우저에서 플러그인 없이 실행할 수 있는 초경량·고성능 인터랙티브 결과물과 물리기반 게임을 개발하고 전시하는 허브 공간입니다.
+            </p>
+            <div class="tech-tags" style="justify-content: center;">
+                <span class="tag">HTML5 Canvas</span>
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">CSS3 Animation</span>
+                <span class="tag">Web Audio API</span>
+                <span class="tag">Physics Engine</span>
+            </div>
+        </div>
+
+        <!-- Interactive H5 Games List -->
+        <div class="project-section">
+            <h2>Featured H5 Game</h2>
+            
+            <div class="card">
+                <div class="card-image-box">
+                    WEBSLINGER
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3 class="card-title">WebSlinger: Ceiling Swing (웹슬링어)</h3>
+                        <p class="card-desc">
+                            플레이어가 거미가 되어 화면 상단의 전선이나 나뭇가지에 실시간 거미줄을 조준 발사하고, 
+                            자체 제작된 정밀한 진자 운동(Pendulum Physics) 물리 가속 공식을 활용하여 
+                            장애물을 리드미컬하게 회피하며 골인 지점까지 기동하는 물리 기반 정적 스윙 플랫포머 웹 게임입니다.
+                            초보자 배려형 1단계 완화 필터 및 상점 업그레이드 성장, 로컬 스피드런 랭킹 기록을 지원합니다.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="https://hajenet.github.io/spider-new-game/" class="btn" target="_blank">Play Now</a>
+                        <div class="tech-tags">
+                            <span class="tag">Orbitron Font</span>
+                            <span class="tag">Pendulum Physics</span>
+                            <span class="tag">Local Storage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 HajeNet. All rights reserved.</p>
+        <p>Powered by GitHub Pages. Verified Account: <a href="mailto:hajenet@gmail.com">hajenet@gmail.com</a> (pub-8293430621295697)</p>
+    </footer>
+
+</body>
+</html>
